@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="./css/simplelightbox.min.css">
+	<script type="text/javascript" src=./js/jquery-1.9.1.min.js></script>
+	<script type="text/javascript" src=./js/simple-lightbox.min.js></script>
+	
+	<style type="text/css">
+		 
+   /*控制遮罩*/
+   .sl-overlay{
+      background :#1f1c1c;
+   }
+     
+
+	</style>
+</head>
+<body>
+	  
+	  <ul class="pingjia_picupload pjed_picupload bgbai gallery" id="imgList">
+         <li class="poi1"><a href="http://dl.mljia.cn/26/comment/a864795e10c3495b82cff3b972766971.jpg"><img width="97" height="99" id="img0" src="http://dl.mljia.cn/26/comment/a864795e10c3495b82cff3b972766971.jpg"></a></li><li class="poi1"><a href="http://dl.mljia.cn/26/comment/9c8ecb860300475190d94b1fc321985f.jpg"><img width="97" height="99" id="img1" src="http://dl.mljia.cn/26/comment/9c8ecb860300475190d94b1fc321985f.jpg"></a></li><li class="poi1"><a href="http://dl.mljia.cn/26/comment/9bea0cd7abe84d93b76c4f5619b25638.jpg"><img width="97" height="99" id="img2" src="http://dl.mljia.cn/26/comment/9bea0cd7abe84d93b76c4f5619b25638.jpg"></a></li><li class="poi1"><a href="http://dl.mljia.cn/26/comment/93c9039ca15d43ff8b083ff8b6988041.jpg"><img width="97" height="99" id="img3" src="http://dl.mljia.cn/26/comment/93c9039ca15d43ff8b083ff8b6988041.jpg"></a></li>
+        </ul>
+
+     <script type="text/javascript">
+     	    var $gallery = $('.gallery a').simpleLightbox({
+                     close:false,
+                     nav:true,  //显示左右导航
+                     fileExt:"", //所有格式
+                     docClose :true,
+                     imgClose : true, //点击图片是否关闭  默认false
+                     widthRatio : 0.8,//图像宽度于屏幕宽度的的比例
+                     heightRatio : 0.8 //图像宽度于屏幕高度的的比例
+                     });
+                 
+                 //Lightbox 开启后的事件 ,修复手机端点击空白区无法关闭bug
+                 $gallery.on("shown.simplelightbox",function(){
+                 	//点击空白关闭
+                     $(".sl-overlay").on("click",function(){
+                         $gallery.close();
+                     });
+                      //点击图片关闭
+                      $gallery.imgCloseFun();
+                 });
+
+     </script>
+</body>
+</html>
